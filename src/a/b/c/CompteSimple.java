@@ -28,10 +28,21 @@ public class CompteSimple extends Compte {
 	 * @param mt
 	 */
 	@Override
-	private void retirer(float mt) {
+	public void retirer(float mt) {
 		// TODO Auto-generated method stub
-		super.retirer(mt);
+		//super.retirer(mt);
+		if(mt<solde+decouvert) solde=solde-mt; 
+		// Pour pouvoir récupérer le solde qui est définit dans la classe Compte,
+		// il faut changer sa visibilité dans la classe Compte de private à protected
+		// Quand solde est en visibilité protected il donne l'autorisation à la classe fille CompteSimple de pouvoir utilisé cet attribut.
 	}
+
+	@Override
+	public void afficher() {
+		// TODO Auto-generated method stub
+		System.out.println("C'est un compte simple");
+	}
+	
 	
 	
 }
